@@ -59,6 +59,18 @@ public class Main {
         System.out.print("null");
     }
 
+    public void insertFirst(int value){
+        ListNode newNode = new ListNode(value);
+        if (isEmpty()){
+            tail = newNode;
+        }else {
+            head.previous = newNode;
+        }
+        newNode.next = head;
+        head = newNode;
+        length++;
+    }
+
     public static void main(String[] args) {
 
         Main sll = new Main();
