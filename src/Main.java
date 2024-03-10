@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 public class Main {
 
     private ListNode head;
@@ -29,8 +31,8 @@ public class Main {
             head = newNode;
         }else {
             tail.next = newNode;
+            newNode.previous = tail;
         }
-        newNode.previous = tail;
         tail = newNode;
         length++;
     }
@@ -71,6 +73,22 @@ public class Main {
         length++;
     }
 
+    public ListNode deleteFirst(){
+        if (isEmpty()){
+            throw new NoSuchElementException();
+        }
+        ListNode temp = head;
+        if (head == tail){
+            tail = null;
+        }else {
+            head.next.previous = null;
+        }
+        head = head.next;
+        temp.next = null;
+        length--;
+        return temp;
+    }
+
     public static void main(String[] args) {
 
         Main sll = new Main();
@@ -80,7 +98,8 @@ public class Main {
         sll.insertLast(25);
 
         //sll.displayForward();
-        sll.displayBackward();
+        //sll.deleteFirst();
+        sll.displayForward();
 
 
     }
