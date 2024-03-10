@@ -111,7 +111,11 @@ public class Main {
         sll.insertLast(10);
         sll.insertLast(15);
         sll.insertLast(25);
-
+        try{
+            Thread.sleep(2000);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
         //sll.displayForward();
         //sll.deleteFirst();
         sll.deleteLast();
